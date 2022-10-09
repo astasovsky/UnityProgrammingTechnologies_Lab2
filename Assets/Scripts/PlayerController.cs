@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private GameObject projectilePrefab;
+
     private const float Speed = 10.0f;
     private const float XRange = 10;
     private float _horizontalInput;
@@ -22,5 +24,11 @@ public class PlayerController : MonoBehaviour
 
         _horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * (_horizontalInput * Time.deltaTime * Speed));
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Launch a projectile from the player
+            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+        }
     }
 }
