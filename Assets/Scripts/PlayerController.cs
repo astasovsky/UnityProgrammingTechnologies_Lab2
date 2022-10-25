@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
 
     private const float Speed = 10.0f;
     private const float XRange = 10;
@@ -24,12 +25,13 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(XRange, transform.position.y, transform.position.z);
         }
-        
-        if(transform.position.z < ZMin)
+
+        if (transform.position.z < ZMin)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, ZMin);
         }
-        if(transform.position.z > ZMax)
+
+        if (transform.position.z > ZMax)
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, ZMax);
         }
@@ -42,7 +44,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             // Launch a projectile from the player
-            Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
         }
     }
 }
