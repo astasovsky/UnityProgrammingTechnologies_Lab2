@@ -6,11 +6,12 @@ public class DetectCollisions : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("Game Over");
+            GameManager.AddLives(-1);
             Destroy(gameObject);
         }
-        else
+        else if (other.CompareTag("Food"))
         {
+            GameManager.AddScore(5);
             Destroy(gameObject);
             Destroy(other.gameObject);
         }

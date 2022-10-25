@@ -4,7 +4,7 @@ public class DestroyOutOfBounds : MonoBehaviour
 {
     private const float TopBound = 30;
     private const float LowerBound = -10;
-    private float sideBound = 30;
+    private const float SideBound = 30;
 
     private void Update()
     {
@@ -14,17 +14,17 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
         else if (transform.position.z < LowerBound)
         {
-            Destroy(gameObject);
-            Debug.Log("Game over!");
-        }
-        else if (transform.position.x > sideBound)
-        {
-            Debug.Log("Game Over!");
+            GameManager.AddLives(-1);
             Destroy(gameObject);
         }
-        else if (transform.position.x < -sideBound)
+        else if (transform.position.x > SideBound)
         {
-            Debug.Log("Game Over!");
+            GameManager.AddLives(-1);
+            Destroy(gameObject);
+        }
+        else if (transform.position.x < -SideBound)
+        {
+            GameManager.AddLives(-1);
             Destroy(gameObject);
         }
     }
