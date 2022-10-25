@@ -2,6 +2,13 @@
 
 public class DetectCollisions : MonoBehaviour
 {
+    private AnimalHunger _animalHunger;
+
+    private void Awake()
+    {
+        _animalHunger = GetComponent<AnimalHunger>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -11,8 +18,7 @@ public class DetectCollisions : MonoBehaviour
         }
         else if (other.CompareTag("Food"))
         {
-            GameManager.AddScore(5);
-            Destroy(gameObject);
+            _animalHunger.FeedAnimal(1);
             Destroy(other.gameObject);
         }
     }
