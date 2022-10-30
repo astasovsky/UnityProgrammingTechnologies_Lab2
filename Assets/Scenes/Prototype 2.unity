@@ -295,7 +295,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a91c23aa13dd0f46bf729e46dafc300, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 1256518338485389813, guid: ce0b6d297a81d1c48b65d99ea6b73e40, type: 3}
   projectileSpawnPoint: {fileID: 2086255128}
 --- !u!4 &397656427 stripped
 Transform:
@@ -591,6 +590,7 @@ GameObject:
   m_Component:
   - component: {fileID: 970520984}
   - component: {fileID: 970520983}
+  - component: {fileID: 970520985}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -629,6 +629,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &970520985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 970520982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45c0e1f24e2ce4a5b9bf1f3a7499cd45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPoolPrefab: {fileID: 1256518338485389813, guid: ce0b6d297a81d1c48b65d99ea6b73e40, type: 3}
+  amountToPool: 1
 --- !u!1 &992285705
 GameObject:
   m_ObjectHideFlags: 0

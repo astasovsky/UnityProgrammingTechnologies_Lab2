@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private GameObject projectilePrefab;
-    public Transform projectileSpawnPoint;
+    [SerializeField] private Transform projectileSpawnPoint;
 
     private const float Speed = 10.0f;
     private const float XRange = 10;
     private const float ZMin = -1.5f;
     private const float ZMax = 15.5f;
+
     private float _horizontalInput;
     private float _verticalInput;
 
@@ -43,8 +43,12 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            // Launch a projectile from the player
-            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
+            GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
+            if (pooledProjectile != null)
+            {
+                pooledProjectile.SetActive(true); // activate it
+                pooledProjectile.transform.position = projectileSpawnPoint.position; // position it at player
+            }
         }
     }
 }
